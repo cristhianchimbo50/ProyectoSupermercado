@@ -1,50 +1,64 @@
 # Inicio de Sesión
 print("Bienvenido Usuario")
 
-# Inicialización de productos y cantidades
-Arroz, cantidadArroz = "Arroz", 0
-Cola, cantidadCola = "Cola", 0
-Helado, cantidadHelado = "Helado", 0
+# inicializar de productos y cantidades
+Producto1, cantidadArroz = "Arroz", 0
+# Producto1 = "Arroz"
+# cantidadArroz = 0
+Producto2, cantidadCola = "Cola", 0
+Producto3, cantidadHelado = "Helado", 0
+intentos = 0
 
 while True:
     usuario = input("Ingrese su nombre de usuario: ")
     contrasena = input("Ingrese su contraseña: ")
 
-    if usuario == 'sebas' and contrasena == '12345':
-        print("Inicio de sesión exitoso.")
+    if usuario == '1' and contrasena == '1':
+        print("Inicio de sesión exitoso.\n")
         break
     else:
-        print("Nombre de usuario o contraseña incorrectos. Inténtelo nuevamente.")
+        print("\n\nNombre de usuario o contraseña incorrectos, intentar nuevamente.")
+
+        intentos = intentos + 1
+
+        if intentos == 3 :
+            print("Ha superado el maximo de intentos.\n")
+            raise SystemExit
+
 
 while True:
-    print("\n----- Menú de Inventario -----")
+    print("\n\n----- Menú de Inventario -----")
     print("1. Agregar Producto")
     print("2. Actualizar Existencias")
     print("3. Eliminar Producto")
     print("4. Mostrar Inventario")
     print("5. Salir")
 
-    opcion = input("Seleccione una opción (1-5): ")
+    opcion = input("Seleccione una opción: ")
 
     if opcion == '1':
         print("Agregar Producto...\n")
         nombre_producto = input("Ingrese el nombre del nuevo producto: ")
         existencias = int(input("Ingrese las existencias iniciales: "))
+
+        #existencias es la cantidad que existe de X producto
         if nombre_producto == "Arroz":
-            cantidadArroz += existencias
+            cantidadArroz = cantidadArroz + existencias
         elif nombre_producto == "Cola":
-            cantidadCola += existencias
+            cantidadArroz = cantidadArroz + existencias
         elif nombre_producto == "Helado":
-            cantidadHelado += existencias
+            cantidadHelado = cantidadHelado + existencias
         else:
             print("Producto no válido. Inténtelo nuevamente.")
 
         print("Producto agregado con éxito.")
 
+
     elif opcion == '2':
         print("Actualizar Existencia...\n")
         nombre_producto = input("Ingrese el nombre del producto a actualizar: ")
         existencias = int(input("Ingrese las nuevas existencias: "))
+        
         if nombre_producto == "Arroz":
             cantidadArroz = existencias
         elif nombre_producto == "Cola":
@@ -72,13 +86,14 @@ while True:
 
     elif opcion == '4':
         print("\nInventario:")
-        print(f"{Arroz}: {cantidadArroz} unidades")
-        print(f"{Cola}: {cantidadCola} unidades")
-        print(f"{Helado}: {cantidadHelado} unidades")
+        print(Producto1 + ": " + str(cantidadArroz) + " unidades")
+        print(Producto2 + ": " + str(cantidadCola) + " unidades")
+        print(Producto3 + ": " + str(cantidadHelado) + " unidades")
+
 
     elif opcion == '5':
-        print("chao")
-        break
+        print("Cerrando el Sistema")
+        raise SystemExit
 
     else:
-        print("Opción no válida. Inténtelo nuevamente.")
+        print("Opción invalida, intentar nuevamente.")
