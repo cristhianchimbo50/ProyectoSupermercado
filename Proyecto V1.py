@@ -82,28 +82,29 @@ while intent < 3 and ses == 0:
                         nom_prod = input('Ingrese uno de los siguientes productos (Leche, Atún, Huevos, Papel higiénico, Alcohol, Curitas, Gasas, Sal, Café, Arroz): ')
                         cant_pro = int(input('Ingrese el número de existencias del producto: '))
                         if nom_prod == "Leche":
-                            exis_leche += cant_pro
+                            exis_leche = exis_leche + cant_pro
                         elif nom_prod == "Atun":
-                            exis_atun += cant_pro
+                            exis_atun = exis_atun + cant_pro
                         elif nom_prod == "Huevos":
-                            exis_huevos += cant_pro
+                            exis_huevos = exis_huevos + cant_pro
                         elif nom_prod == "Papel":
-                            exis_papel += cant_pro
+                            exis_papel = exis_papel + cant_pro
                         elif nom_prod == "Alcohol":
-                            exis_alcohol += cant_pro
+                            exis_alcohol = exis_alcohol + cant_pro
                         elif nom_prod == "Curitas":
-                            exis_curitas += cant_pro
+                            exis_curitas = exis_curitas + cant_pro
                         elif nom_prod == "Gasas":
-                            exis_gasas += cant_pro
+                            exis_gasas = exis_gasas + cant_pro
                         elif nom_prod == "Sal":
-                            exis_sal += cant_pro
+                            exis_sal = exis_sal + cant_pro
                         elif nom_prod == "Cafe":
-                            exis_cafe += cant_pro
+                            exis_cafe = exis_cafe + cant_pro
                         elif nom_prod == "Arroz":
-                            exis_arroz += cant_pro
+                            exis_arroz = exis_arroz + cant_pro
+
                         else:
                             print("Error al ingresar producto, inténtelo de nuevo")
-                        i += 1
+                        i = i + 1
                     print("Productos ingresados con éxito")
                 else:
                     print("Usted no ha querido ingresar algún producto")
