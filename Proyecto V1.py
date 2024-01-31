@@ -26,7 +26,6 @@ cont = ""
 nom_prod = ""
 resp = ""
 
-        
 while True:
     usuario = input("Ingrese su nombre de usuario: ")
     contrasena = input("Ingrese su contraseña: ")
@@ -37,7 +36,7 @@ while True:
     else:
         print("\nEl usuario o contraseña es incorrecto\n")
         intent = intent + 1
-        
+
         if intent == 3:
             print("\nUsuario bloqueado, utilizó 3 intentos\n")
             raise SystemExit
@@ -45,37 +44,38 @@ while True:
 while True:
     print("**Bienvenidos al Sistema**")
     ses = 1
-    print("\n**Bienvenidos al siguiente menú**\n")
+    print("\n**MENÚ**\n")
     print("1. Visualizar el total a cancelar")
     print("2. Visualizar el bono de los empleados")
+    
     print("\n**Inventario del Supermercado**\n")
-    print("\nBienvenidos al siguiente menú\n")
     print("3. Agregar productos y muestra el inventario")
     print("4. Salir del Sistema")
-    opc = int(input("Seleccione 1 de las 3 opciones: "))
-        
+    
+    opc = int(input("\n\nSeleccione 1 de las 3 opciones: "))
+
     if opc == 1:
         n = int(input("Ingrese cuántos productos compró: "))
         while i <= n:
-            precio = float(input("Ingrese el precio del producto " , i , ": "))
+            precio = float(input("Ingrese el precio del producto {}: ".format(i)))
             suma = suma + precio
             i = i + 1
-            if suma < 50:
-                total_cancelar = suma
-            elif 50 <= suma <= 99:
-                desc = suma * 0.05
-                total_cancelar = suma - desc
-            elif 100 <= suma <= 149:
-                desc = suma * 0.10
-                total_cancelar = suma - desc
-            elif 150 <= suma <= 199:
-                desc = suma * 0.15
-                total_cancelar = suma - desc
-            elif 200 <= suma <= 249:
-                desc = suma * 0.20
-                total_cancelar = suma - desc
-                
-            print("El total a cancelar es:", total_cancelar)
+        if suma < 50:
+            total_cancelar = suma
+        elif 50 <= suma <= 99:
+            desc = suma * 0.05
+            total_cancelar = suma - desc
+        elif 100 <= suma <= 149:
+            desc = suma * 0.10
+            total_cancelar = suma - desc
+        elif 150 <= suma <= 199:
+            desc = suma * 0.15
+            total_cancelar = suma - desc
+        elif 200 <= suma <= 249:
+            desc = suma * 0.20
+            total_cancelar = suma - desc
+
+        print("El total a cancelar es:", total_cancelar)
 
     elif opc == 2:
         vent = float(input("Ingrese cuánto vendió semanalmente: "))
@@ -117,10 +117,8 @@ while True:
                 else:
                     print("Error al ingresar producto, inténtelo de nuevo")
                 i = i + 1
-                print("Productos ingresados con éxito")
-            else:
-                print("Usted no ha querido ingresar algún producto")
-                
+            print("Productos ingresados con éxito")
+
             print("\nEl Inventario de productos es:\n")
             print("Leche: ", exis_leche)
             print("Atun: ", exis_atun)
@@ -139,6 +137,4 @@ while True:
         raise SystemExit
     else:
         print("Opción no válida")
-        raise SystemExit
-
-
+        break
